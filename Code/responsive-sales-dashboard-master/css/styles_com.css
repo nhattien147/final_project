@@ -1,0 +1,290 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1d2634;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+#myChart{
+  position: relative;
+  top: -30px;
+}
+#img1{
+  display: flex;
+  position: relative;
+  left: 0px;
+}
+#img2{
+  display: flex;
+  position: relative;
+  left: 7px;
+}
+#img3{
+  display: flex;
+  position: relative;
+  left: 7px;
+}
+.bg-light{
+  position: relative;
+  width: 1000px;
+}
+
+.material-icons-outlined {
+  vertical-align: middle;
+  line-height: 1px;
+  font-size: 35px;
+}
+.container{
+  display: flex;
+  position: relative;
+  top: 110px;
+}
+.display-5 {
+  display: flex;
+  position: relative;
+  left: 510px;
+  top: -30px;
+}
+.form-control1{
+  display: flex;
+  position: relative;
+  left: 10px;
+}
+.form-control2{
+  display: flex;
+  position: relative;
+  left: 10px;
+}
+.form-control3{
+  display: flex;
+  position: relative;
+  left: 5px;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 225px 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 3fr;
+  grid-template-areas:
+    'sidebar header header header'
+    'sidebar main main main';
+  height: 100vh;
+}
+#id_hm {
+  display: none;
+  width: 500px;
+}
+/* ---------- HEADER ---------- */
+.menu-icon {
+  display: none;
+}
+
+/* ---------- SIDEBAR ---------- */
+
+#sidebar {
+  grid-area: sidebar;
+  height: 100%;
+  background-color: #263043;
+  overflow-y: auto;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+.sidebar-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px 20px 20px;
+  font-size: 30px;
+  font-weight: 900;
+  
+}
+
+.sidebar-title > span {
+  display: none;
+}
+
+.sidebar-brand {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sidebar-list {
+  padding: 0;
+  margin-top: -25px;
+  list-style-type: none;
+}
+
+.sidebar-list-item {
+  padding: 18px 0px 10px 20px;
+  font-size: 18px;
+}
+
+.sidebar-list-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.sidebar-list-item > a {
+  text-decoration: none;
+  color: black;
+}
+
+.sidebar-responsive {
+  display: inline !important;
+  position: absolute;
+  /*
+    the z-index of the ApexCharts is 11
+    we want the z-index of the sidebar higher so that
+    the charts are not showing over the sidebar 
+    on small screens
+  */
+  z-index: 12 !important;
+}
+
+/* ---------- MAIN ---------- */
+
+.main-container {
+  grid-area: main;
+  padding: 20px 20px;
+  color: rgba(255, 255, 255, 0.95);
+  position: relative;
+  top: 5px;
+}
+#id_hm{
+  display:flex;
+  position: relative;
+  height: 300px;
+  width: 630px;
+  left:700px;
+  top:-350px;
+  border-radius: 8px;
+  background:white;
+}
+.sport{
+  position: relative;
+  top: 0px;
+  left: 10px;
+  font-size: 35px;
+  font-weight: 1000px;
+}
+.main-title {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  left: 500px;
+  font-size: 20px;
+}
+
+.main-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 25px;
+  border-radius: 5px;
+}
+
+.card:first-child {
+  background-color: #2962ff;
+}
+
+.card:nth-child(2) {
+  background-color: #ff6d00;
+}
+
+.card:nth-child(3) {
+  background-color: #2e7d32;
+}
+
+.card:nth-child(4) {
+  background-color: #d50000;
+}
+
+.card-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-inner > .material-icons-outlined {
+  font-size: 45px;
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 60px;
+}
+
+.charts-card {
+  background-color: #263043;
+  margin-bottom: 20px;
+  padding: 25px;
+  box-sizing: border-box;
+  -webkit-column-break-inside: avoid;
+  border-radius: 5px;
+  box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+}
+
+.chart-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- MEDIA QUERIES ---------- */
+
+/* Medium <= 992px */
+
+@media screen and (max-width: 992px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas:
+      'header'
+      'main';
+  }
+
+  #sidebar {
+    display: none;
+  }
+
+  .menu-icon {
+    display: inline;
+  }
+
+  .sidebar-title > span {
+    display: inline;
+  }
+}
+
+/* Small <= 768px */
+
+@media screen and (max-width: 768px) {
+  .main-cards {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .charts {
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+  }
+}
+
+/* Extra Small <= 576px */
+
+@media screen and (max-width: 576px) {
+  .hedaer-left {
+    display: none;
+  }
+}

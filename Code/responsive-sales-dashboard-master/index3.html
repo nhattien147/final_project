@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ANALYST Dashboard</title>
+    <style>
+      td > img {
+        width: 100%;
+        height: 250px;
+        object-fit: contain;
+      }
+    </style>
+    <!-- Montserrat Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;460;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js"
+      type="text/javascript"
+    ></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/styles_com.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <script src="web/responsive-sales-dashboard-master/js/HeatLayer.js"></script>
+    <script src="web/responsive-sales-dashboard-master/js/leaflet-heat.js"></script>
+    <script src="web/responsive-sales-dashboard-master/js/simpleheat.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+      body {
+        background-color: #1d2634;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <!-- Sidebar -->
+      <aside id="sidebar">
+        <div class="sidebar-title">
+          <div
+            class="sidebar-brand"
+            style="
+              font-size: 35px;
+              font-weight: 1000px;
+              letter-spacing: 0px;
+              color: white;
+              font-family: 'Montserrat', sans-serif;
+            "
+          >
+            PLAY
+            <h3
+              class="sidebar-brand"
+              style="
+                padding-left: 40px;
+                color: white;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 35px;
+                display: flex;
+                position: relative;
+                top: -10px;
+              "
+            >
+              SPORT
+            </h3>
+          </div>
+        </div>
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="index.html" target="_self" style="font-weight: 1000px">
+              <span class="material-icons-outlined"> person </span> Nguyễn Nhật
+              Tiến
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="index1.html" target="_self" style="font-weight: 1000px">
+              <span class="material-icons-outlined"> person </span> Võ Công Thức
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="index2.html" target="_self">
+              <span class="material-icons-outlined"> person </span> Hồ Bảo Trân
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="index3.html" target="_self">
+              <span class="material-icons-outlined"> compare_arrows </span> So
+              Sánh
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <!-- End Sidebar -->
+
+      <!-- Main -->
+      <h1
+        class="display-5 my-5 text-center"
+        style="color: white; font-weight: 500"
+      >
+        Compare Session
+      </h1>
+      <div class="container">
+        <div>
+          <table class="table">
+            <tr class="bg-light">
+              <th style="text-align: center">Select</th>
+              <th width="1000px">
+                <select
+                  class="form-control1"
+                  id="select1"
+                  onchange="item1(this.value)"
+                >
+                  <option value="0">--Select--</option>
+                </select>
+              </th>
+              <th width="1000px">
+                <select
+                  class="form-control2"
+                  id="select2"
+                  onchange="item2(this.value)"
+                >
+                  <option value="0">--Select--</option>
+                </select>
+              </th>
+              <th width="1000px">
+                <select
+                  class="form-control3"
+                  id="select3"
+                  onchange="item3(this.value)"
+                >
+                  <option value="0">--Select--</option>
+                </select>
+              </th>
+            </tr>
+            <tr>
+              <th>Product Image</th>
+              <td>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
+                  id="img1"
+                  alt=" "
+                />
+              </td>
+              <td>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
+                  id="img2"
+                  alt=" "
+                />
+              </td>
+              <td>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
+                  id="img3"
+                  alt=" "
+                  style="width: 100%; height: 250px; object-fit: contain"
+                />
+              </td>
+            </tr>
+            <tr>
+              <th style="color: white">Distance (Km)</th>
+              <td
+                id="price1"
+                style="
+                  color: white;
+                  text-align: center;
+                  vertical-align: middle;
+                  font-weight: 1000;
+                "
+              ></td>
+              <td
+                id="price2"
+                style="
+                  color: white;
+                  text-align: center;
+                  vertical-align: middle;
+                  font-weight: 1000;
+                "
+              ></td>
+              <td
+                id="price3"
+                style="
+                  color: white;
+                  text-align: center;
+                  vertical-align: middle;
+                  font-weight: 1000;
+                "
+              ></td>
+            </tr>
+            <tr>
+              <th style="color: white">Top Speed (Km/h)</th>
+              <td
+                id="desc1"
+                style="
+                  color: white;
+                  text-align: center;
+                  vertical-align: middle;
+                  font-weight: 1000;
+                "
+              ></td>
+              <td
+                id="desc2"
+                style="
+                  color: white;
+                  text-align: center;
+                  vertical-align: middle;
+                  font-weight: 1000;
+                "
+              ></td>
+              <td
+                id="desc3"
+                style="
+                  color: white;
+                  text-align: center;
+                  vertical-align: middle;
+                  font-weight: 1000;
+                "
+              ></td>
+            </tr>
+            <tr>
+              <th style="color: white">Sprint distance (Km)</th>
+              <td
+                id="brand1"
+                style="
+                  color: white;
+                  text-align: center;
+                  vertical-align: middle;
+                  font-weight: 1000;
+                "
+              ></td>
+              <td
+                id="brand2"
+                style="
+                  color: white;
+                  text-align: center;
+                  vertical-align: middle;
+                  font-weight: 1000;
+                "
+              ></td>
+              <td
+                id="brand3"
+                style="
+                  color: white;
+                  text-align: center;
+                  vertical-align: middle;
+                  font-weight: 1000;
+                "
+              ></td>
+            </tr>
+            <tr>
+              <th style="color: white">Total time played (Hour)</th>
+              <td
+                id="time1"
+                style="
+                  color: white;
+                  text-align: center;
+                  vertical-align: middle;
+                  font-weight: 1000;
+                "
+              ></td>
+              <td
+                id="time2"
+                style="
+                  color: white;
+                  text-align: center;
+                  vertical-align: middle;
+                  font-weight: 1000;
+                "
+              ></td>
+              <td
+                id="time3"
+                style="
+                  color: white;
+                  text-align: center;
+                  vertical-align: middle;
+                  font-weight: 1000;
+                "
+              ></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <script src="js/scripts.js"></script>
+      <script src="js/scripts1.js"></script>
+      <script src="js/scripts2.js"></script>
+      <script src="js/data.js"></script>
+      <!-- <script>
+        window.onload = function () {
+          var img1 = document.getElementById("img1");
+          var img2 = document.getElementById("img2");
+          var img3 = document.getElementById("img3");
+
+          img1.src = "images/tien.jpg";
+          img2.src = "images/thuc.jpg";
+          img3.src = "images/tran.jpg";
+        };
+      </script> -->
+      <script>
+        for (var i = 1; i < product.length; i++) {
+          document.getElementById("select1").innerHTML += `
+          <option value="${i}">${product[i].title}</option>
+          `;
+          document.getElementById("select2").innerHTML += `
+          <option value="${i}">${product[i].title}</option>
+          `;
+          document.getElementById("select3").innerHTML += `
+          <option value="${i}">${product[i].title}</option>
+          `;
+        }
+
+        function item1(a) {
+          var select2 = document.getElementById("select2").value;
+          var select3 = document.getElementById("select3").value;
+          document.getElementById("img1").src = product[a].image;
+          document.getElementById("price1").innerHTML = product[a].price;
+          document.getElementById("desc1").innerHTML = product[a].description;
+          document.getElementById("brand1").innerHTML = product[a].brand;
+          document.getElementById("time1").innerHTML = product[a].time;
+          if (a != select2 && a != select3 && select2 != "0") {
+            document.getElementById("img2").src = product[select2].image;
+            document.getElementById("price2").innerHTML =
+              product[select2].price;
+            document.getElementById("desc2").innerHTML =
+              product[select2].description;
+            document.getElementById("brand2").innerHTML =
+              product[select2].brand;
+            document.getElementById("time2").innerHTML = product[select2].time;
+          }
+          if (a != select3 && select3 != "0") {
+            document.getElementById("img3").src = product[select3].image;
+            document.getElementById("price3").innerHTML =
+              product[select3].price;
+            document.getElementById("desc3").innerHTML =
+              product[select3].description;
+            document.getElementById("brand3").innerHTML =
+              product[select3].brand;
+            document.getElementById("time3").innerHTML = product[select3].time;
+          }
+        }
+
+        function item2(a) {
+          var select1 = document.getElementById("select1").value;
+          var select3 = document.getElementById("select3").value;
+          document.getElementById("img2").src = product[a].image;
+          document.getElementById("price2").innerHTML = product[a].price;
+          document.getElementById("desc2").innerHTML = product[a].description;
+          document.getElementById("brand2").innerHTML = product[a].brand;
+          document.getElementById("time2").innerHTML = product[a].time;
+          if (a != select1 && a != select3 && select1 != "0") {
+            document.getElementById("img1").src = product[select1].image;
+            document.getElementById("price1").innerHTML =
+              product[select1].price;
+            document.getElementById("desc1").innerHTML =
+              product[select1].description;
+            document.getElementById("brand1").innerHTML =
+              product[select1].brand;
+            document.getElementById("time1").innerHTML = product[select1].time;
+          }
+          if (a != select3 && select3 != "0") {
+            document.getElementById("img3").src = product[select3].image;
+            document.getElementById("price3").innerHTML =
+              product[select3].price;
+            document.getElementById("desc3").innerHTML =
+              product[select3].description;
+            document.getElementById("brand3").innerHTML =
+              product[select3].brand;
+            document.getElementById("time3").innerHTML = product[select3].time;
+          }
+        }
+
+        function item3(a) {
+          var select1 = document.getElementById("select1").value;
+          var select2 = document.getElementById("select2").value;
+          document.getElementById("img3").src = product[a].image;
+          document.getElementById("price3").innerHTML = product[a].price;
+          document.getElementById("desc3").innerHTML = product[a].description;
+          document.getElementById("brand3").innerHTML = product[a].brand;
+          document.getElementById("time3").innerHTML = product[a].time;
+          if (a != select1 && a != select2 && select1 != "0") {
+            document.getElementById("img1").src = product[select1].image;
+            document.getElementById("price1").innerHTML =
+              product[select1].price;
+            document.getElementById("desc1").innerHTML =
+              product[select1].description;
+            document.getElementById("brand1").innerHTML =
+              product[select1].brand;
+            document.getElementById("time1").innerHTML = product[select1].time;
+          }
+          if (a != select2 && select2 != "0") {
+            document.getElementById("img2").src = product[select2].image;
+            document.getElementById("price2").innerHTML =
+              product[select2].price;
+            document.getElementById("desc2").innerHTML =
+              product[select2].description;
+            document.getElementById("brand2").innerHTML =
+              product[select2].brand;
+            document.getElementById("time2").innerHTML = product[select2].time;
+          }
+        }
+      </script>
+
+      <script>
+        function disableSelectedOptions() {
+          var select1 = document.getElementById("select1");
+          var select2 = document.getElementById("select2");
+          var select3 = document.getElementById("select3");
+
+          var selectedOption1 = select1.value;
+          var selectedOption2 = select2.value;
+          var selectedOption3 = select3.value;
+
+          // Vô hiệu hóa tùy chọn đã được chọn trên các menu dropdown
+          for (var i = 0; i < select1.options.length; i++) {
+            if (
+              select1.options[i].value === selectedOption2 ||
+              select1.options[i].value === selectedOption3
+            ) {
+              select1.options[i].disabled = true;
+            } else {
+              select1.options[i].disabled = false;
+            }
+          }
+
+          for (var i = 0; i < select2.options.length; i++) {
+            if (
+              select2.options[i].value === selectedOption1 ||
+              select2.options[i].value === selectedOption3
+            ) {
+              select2.options[i].disabled = true;
+            } else {
+              select2.options[i].disabled = false;
+            }
+          }
+
+          for (var i = 0; i < select3.options.length; i++) {
+            if (
+              select3.options[i].value === selectedOption1 ||
+              select3.options[i].value === selectedOption2
+            ) {
+              select3.options[i].disabled = true;
+            } else {
+              select3.options[i].disabled = false;
+            }
+          }
+        }
+
+        // Gọi hàm disableSelectedOptions khi có sự thay đổi trên các menu dropdown
+        document
+          .getElementById("select1")
+          .addEventListener("change", disableSelectedOptions);
+        document
+          .getElementById("select2")
+          .addEventListener("change", disableSelectedOptions);
+        document
+          .getElementById("select3")
+          .addEventListener("change", disableSelectedOptions);
+      </script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js "></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js "></script>
+      <!-- End Main -->
+    </div>
+    <form id="form2_data" method="post">
+      <input type="hidden" name="V_form" id="V_id" />
+      <input type="hidden" name="distance_form" id="distance_id" />
+      <input type="hidden" name="HR_form" id="HR_id" />
+      <input type="hidden" name="lat_form" id="lat_id" />
+      <input type="hidden" name="long_form" id="long_id" />
+      <input type="hidden" name="lat__af_form" id="lat_af_id" />
+      <input type="hidden" name="long__af_form" id="long_af_id" />
+    </form>
+    <!-- Scripts -->
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+    <!-- Custom JS -->
+  </body>
+</html>

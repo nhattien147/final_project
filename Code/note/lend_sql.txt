@@ -1,0 +1,3 @@
+create table project_data(stt int auto_increment primary key,ngay DATE DEFAULT CURRENT_DATE,gio TIME DEFAULT CURRENT_TIME,velocity float(5,2),distance float(5,2),heart_rate int,hour int, minute int,second int, time int)
+
+create table personal_data(stt int auto_increment primary key,ngay date default current_date,gio time default current_time,name char(30) not null,gender CHAR(1) not null,age int not null,heigth int not null,weight int not null);

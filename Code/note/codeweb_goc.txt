@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SPORT</title>
+    <!-- Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="" />
+    <!-- //Meta Tags -->
+    <link rel="shortcut icon" type="image/png" href="images/icon.jpg"/>
+    <!-- Style-sheets -->
+    <!-- Bootstrap Css -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--// Common Css -->
+    <!-- Nav Css -->
+    <link rel="stylesheet" href="css/style4.css">
+    <!--// Nav Css -->
+    <!-- Fontawesome Css -->
+    <link href="css/fontawesome-all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google icon -->
+    <!-- paho -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" /> 
+   
+
+</head>
+<style>
+    body {
+        width: 300px ;
+        height: 0px;
+        background-image: url('images/messi1.jpg'); 
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-size: 100% 100%;
+   
+    }
+    #menu ul {
+        background: #7495b4;
+        list-style-type: none;
+        text-align: center;
+      }
+    #menu li {
+        color: #030303;
+        display: inline-block;
+        width: 120px;
+        height: 40px;
+        line-height: 40px;
+        margin-left: -5px;
+    }
+    #menu a {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        display: block;
+    }
+    #menu a:hover {
+        background:black;
+        color: #333;
+    }
+ 
+    @import url('https://fonts.cdnfonts.com/css/sports');
+    </style>
+<body>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+crossorigin=""/>
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+crossorigin=""></script>
+    <div class="se-pre-con"></div>
+    <!-- <font ><marquee direction="left" style="background:rgb(255, 255, 255)">PLAYSPORT DESIGN BY NGUYỄN NHẬT TIẾN</marquee></font> -->
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>
+                    <a style="color: #FFF;">PlaySport</a>
+                </h1>
+            </div>
+            <div class="profile-bg" >
+                <img src="images/football-62e559a1dd881.jpg" style="width:195px;height:100px;">
+            </div>
+            <ul class="list-unstyled components">
+                <li class="active_adjust">
+                    <a href="web.html" style="color: #FFF;">
+                        <i class="fas fa-users" style="color: #FFF;" ></i>
+                       <b>Nguyễn Nhật Tiến</b> 
+                    </a>
+                    <a href="web.html" style="color: #FFF;">
+                        <i class="fas fa-users"  style="color: #FFF;"></i>
+                       <b>Võ Công Thức</b> 
+                    </a>
+                    <a href="web.html" style="color: #FFF;">
+                        <i class="fas fa-users"  style="color: #FFF;"></i>
+                       <b>Hồ Bảo Trân</b> 
+                    </a>
+                    <!-- <span>P</span> -->
+                </li>
+
+            </ul>
+        </nav>
+        <!-- Form thông tin cầu thủ-->
+        <form action="" id="form2">
+            <div>
+                <br>
+                <h3 class="thong_so" style="color: #FFF  ;">Player stats
+                </h3>    
+            </div>
+            <div class="left_area">
+                <!-- <label class="label_1" style="padding-left:125px; ">Distance  </label><br> -->
+                <textarea readonly wrap="hard" id="Kp" rows="1" cols="10" name="dis" placeholder="Distance"  ></textarea><br><br>  
+                <!-- <label class="label_1" style="padding-left:125px; ">Velocity  </label><br> -->
+                <textarea readonsly wrap="hard" id="Ki" rows="1" cols="10" name="vel" placeholder="Velocity"></textarea><br><br>  
+                <!-- <label class="label_1" style="padding-left:115px; ">Heart_rate  </label><br> -->
+                <textarea readonly wrap="hard" id="Kd" rows="1" cols="10"name="hr" placeholder="Heart rate"></textarea><br> <br>
+                <!-- <div>
+                    <button id="myDIV" onclick="myFunction();disablee()" class="button" type="button">Connect</button>
+                </div> -->
+                <div >
+                    <p class="text1"><b>m</b></p>
+                    <p class="text2"><b>km/h</b></p>
+                    <p class="text3"><b>bpm</b></p>
+                </div>
+            </div>
+            <!-- icon phần chỉ số cầu thủ-->
+            <div >
+                <i class="fa fa-map-marker" style="font-size:35px;color:#FFF;"></i>
+            </div>
+            <div>
+                <i class="fas fa-tachometer-alt"  style="font-size:35px;color:#FFF"></i>
+            </div>
+            <div>
+                <i class="fa fa-heart" style="font-size:35px;color:#FFF"></i>
+            </div>
+         
+        </form>
+        <!-- Page Content Holder -->
+    </div>
+            <!--// Copyright -->
+    </div>
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <!-- tạo map leafleat-->
+    <div id="map" ></div>
+    <!-- form lưu dữ liệu ẩn-->
+    <!-- script xử lý map-->
+    <script src="map.js"></script>
+    </div>
+    <!-- <div class="heart_chart1" id="chartt">
+        <p style="padding-left: 140px; font-weight: 1000px; font-size: 28px;  font-family: 'Sports', sans-serif;  font-weight: 700; margin-top:10px ;letter-spacing: 3px;color:#FFF" ><strong></strong></p>
+        <canvas id="myChart2"></canvas>
+    </div> -->
+    <!-- Required common Js -->
+    <script src='js/jquery-2.2.3.min.js'></script>
+    <!-- //Required common Js -->
+    <!-- loading-gif Js -->
+    <script src="js/modernizr.js"></script>=
+    <script>
+        //paste this code under head tag or in a seperate js file.
+        // Wait for window load
+        $(window).load(function () {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
+    <!-- Graph -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0/chart.min.js"> </script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> -->
+<!-- tạo biểu đồ vận tốc-->
+    <div class="vel_chart">
+        <p style="padding-left: 200px; font-weight: 1000px; font-size: 28px;  font-family: 'Sports', sans-serif; font-weight: 700; margin-top:10px;letter-spacing: 3px; color:#FFF; " ><strong>VELOCITY</strong></p>
+        <canvas id="myChart"> </canvas>
+    </div>
+    <!-- tạo biểu đồ nhịp tim -->
+    <div class="heart_chart" id="chartt">
+        <p style="padding-left: 200px; font-weight: 1000px; font-size: 28px;  font-family: 'Sports', sans-serif;  font-weight: 700; margin-top:10px ;letter-spacing: 3px;color:#FFF" ><strong>HEART RATE</strong></p>
+        <canvas id="myChart1"></canvas>
+    </div>
+
+    <!-- script vẽ biểu đồ vận tốc -->
+    <script>
+     
+        var label = [];
+        var a = [];
+        const chartdata = {
+            labels: label,
+            datasets: [{  
+                label: "KM/H",
+                data: a,
+                borderColor: 'rgb(255,255,255)',
+                pointStyle: 'star',
+                pointRadius: 0,
+                borderWidth: 1,
+                tension : 0.5,
+            },
+        ]
+        };
+        const config = {
+            type: 'line',
+            data: chartdata,
+            options: {
+                plugins: {
+                    legend: {
+                        display: true,
+                        backgroundColor : "rgb(255,255,255)",
+                        labels: {
+                            color:"#FFF",
+                            font: {
+                                size: 19,
+                                style :"bold",
+                               }
+                              ,
+                              boxHeight	:0,
+                        }
+                    }
+                },
+                animation:false,
+                scales: {
+                    y: {
+                        max: 5,
+                        min: 0,
+                        grid:{
+                            color:'white',
+                            drawOnChartArea: false,
+                          }
+                        ,
+                        ticks: {
+                            color:"#FFF",
+                            font: {
+                                size: 13,
+                                style :"bold",
+                               },
+                               stepSize: 1,
+                               
+                        },   
+                    },
+                    x: {
+                        max: 60,
+                        min: 0,
+                        grid:{
+                            color:'white',
+                            drawOnChartArea: false,
+                          }
+                        ,
+                        ticks: {
+                            color:"#FFF",
+                            font: {
+                                size: 12.5,
+                                style :"bold",
+                               },                           
+                        }
+                    }
+                }
+            }
+        };
+        var myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+        //load data tu database
+        $(document).ready(function(){
+            updateChart();
+         });
+        setInterval(updateChart,500);
+        function updateChart(){
+            // gui request xuong database de lay data
+            $.post('readData.php',function(data){
+                var label = [];
+                var a = [];
+                for(var i in data){
+                    label.push(data[i].gio);
+                    a.push(data[i].velocity);//gia tri cua databases
+                }
+                myChart.data.labels = label;
+                myChart.data.datasets[0].data= a;
+                myChart.update();
+            })
+        }
+    
+    </script>
+<!-- script vẽ biểu đồ nhịp tim -->
+    <script>
+     
+        var label1 = [];
+        var b = [];
+        const chartdata1 = {
+            labels: label1,
+            datasets: [{  
+                label: "BPS",
+                data: b,
+                borderColor: 'rgb(255,255,255)',
+                pointStyle: 'star',
+                pointRadius: 0,
+                borderWidth: 1,
+                tension : 0.5,
+            },
+        ]
+        };
+        const config1 = {
+            type: 'line',
+            data: chartdata1,
+            options: {
+                plugins: {
+                    legend: {
+                        display: true,
+                        backgroundColor : "rgb(255,255,255)",
+                        labels: {
+                            color:"#FFF",
+                            font: {
+                                size: 19,
+                                style :"bold",
+                               }
+                              ,
+                              boxHeight	:0,
+                        }
+                    }
+                },
+                animation:false,
+                scales: {
+                    y: {
+                        max: 150,
+                        min: 10,
+                        grid:{
+                            color:'white',
+                            drawOnChartArea: false,
+                          },
+                        ticks: {
+                            color:"#FFF",
+                            font: {
+                                size: 13,
+                                style :"bold",
+                               },
+                               stepSize: 20,
+                        },
+                    },
+                    x: {
+                        max: 60,
+                        min: 0,
+                        grid:{
+                            color:'white',
+                            drawOnChartArea: false,
+                          },
+                        ticks: {
+                            color:"#FFF",
+                            font: {
+                                size: 12.5,
+                                style :"bold",
+                               },                             
+                        }
+                    }
+                }
+            }
+        };
+        var myChart1 = new Chart(
+            document.getElementById('myChart1'),
+            config1
+        );
+        //load data tu database
+        $(document).ready(function(){
+            updateChart1();
+         });
+        setInterval(updateChart1,400);
+        function updateChart1(){
+            // gui request xuong database de lay data
+            $.post('readData.php',function(data){
+                var label1 = [];
+                var b = [];
+                for(var i in data){
+                    label1.push(data[i].gio);
+                    b.push(data[i].heart_rate);//gia tri cua databases
+                }
+                myChart1.data.labels = label1;
+                myChart1.data.datasets[0].data=b;
+                myChart1.update();
+            })
+        }
+    </script>
+    <!-- <script>
+        var label2 = [];
+        var c = [];
+        const chartdata2 = {
+            labels: label2,
+            datasets: [{  
+                label: "",
+                data: c,
+                borderColor: 'rgb(255,255,255)',
+                pointStyle: 'star',
+                pointRadius: 0,
+                borderWidth: 1,
+                tension : 0.5,
+            },
+        ]
+        };
+        const config2 = {
+            type: 'line',
+            data: chartdata2,
+            options: {
+                plugins: {
+                    legend: {
+                        display: true,
+                        backgroundColor : "rgb(255,255,255)",
+                        labels: {
+                            color:"#FFF",
+                            font: {
+                                size: 19,
+                                style :"bold",
+                               }
+                              ,
+                              boxHeight	:0,
+                        }
+                    }
+                },
+                animation:false,
+                scales: {
+                    y: {
+                        max: 10                                   ,
+                        min: 0,
+                        grid:{
+                            color:'white',
+                            drawOnChartArea: false,
+                          }
+                        ,
+                        ticks: {
+                            color:"#FFF",
+                            font: {
+                                size: 13,
+                                style :"bold",
+                               },
+                               stepSize: 2,
+                               
+                        },   
+                    },
+                    x: {
+                        max: 60,
+                        min: 0,
+                        grid:{
+                            color:'white',
+                            drawOnChartArea: false,
+                          }
+                        ,
+                        ticks: {
+                            color:"#FFF",
+                            font: {
+                                size: 12.5,
+                                style :"bold",
+                               },                           
+                        }
+                    }
+                }
+            }
+        };
+        var myChart = new Chart(
+            document.getElementById('myChart2'),
+            config2
+        );
+        //load data tu database
+        $(document).ready(function(){
+            updateChart();
+         });
+        setInterval(updateChart,500);
+        function updateChart(){
+            // gui request xuong database de lay data
+            $.post('readData.php',function(data){
+                var label2 = [];
+                var c = [];
+                for(var i in data){
+                    label.push(data[i].gio);
+                    a.push(data[i].velocity);//gia tri cua databases
+                }
+                myChart.data.labels = label2;
+                myChart.data.datasets[0].data= c;
+                myChart.update();
+            })
+        }
+    </script> -->
+    <!-- form lưu data vận tốc, khoảng cách và vận tốc-->
+    <form id="form_data" method="post">
+        <input type="hidden" name="v_form" id="V_id">
+        <input type="hidden" name="distance_form" id="distance_id">
+        <input type="hidden" name="HR_form" id="HR_id">
+        <input type="hidden" name="lat_form" id="lat_id">
+        <input type="hidden" name="long_form" id="long_id">
+        <input type="hidden" name="hour_form" id="hour_id">
+        <input type="hidden" name="minute_form" id="minute_id">
+        <input type="hidden" name="second_form" id="second_id">
+        <input type="hidden" name="time_form" id="time_id">
+    </form>
+
+    <!-- Js for bootstrap working-->
+    <script src="js/bootstrap.min.js"></script>
+    </script> -->
+    <script src="java_iot.js"></script>
+    <!-- <script src="map.js"></script>  -->
+    <script>
+    </script>
+    <!-- //Js for bootstrap working -->
+</body>
+</html>

@@ -1,0 +1,544 @@
+/*
+    DEMO STYLE
+*/
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+body {
+    font-family: 'Sports', sans-serif;
+    /* background: #f1f1f1; */
+}
+
+p {
+    font-family: 'Sports', sans-serif;
+    /*font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;*/
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+.left_area{
+    float:left;
+    width: 45%;
+    margin: 20px;
+    margin-left: 10px;   
+    text-align: center;
+
+    
+    
+}
+#Kp, #Ki,#Kd {
+    border-radius: 5px;
+    padding:0px;
+    border: solid;
+    resize: none;
+    font-size: 18px;
+    margin-left: 100px;
+    text-align: center;
+    position: relative;
+    left: -38px;
+} 
+#form2{
+    font-family: 'Sports', sans-serif;
+    float:right;
+    border-radius: 10px;
+    box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 25%);
+    background: black;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    margin-left: 23px;
+    margin-top: 20px;  
+    margin-right: 10px;
+    padding: 25px;
+    width: 400px;
+    height:300px;
+}
+
+.thong_so{
+    margin-top: -15px;
+    margin-bottom: 10px;
+    margin-left: 25px;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 0px;
+    color: #FFF;
+    letter-spacing: 3px;
+   
+}
+.label_1{
+    vertical-align: 0px;
+    font-size: 15px;
+    color:#FFF;
+    letter-spacing: 3px;
+    font-weight: 1000px;
+
+}
+#map,#id{
+    height: 300px;
+    width: 465px;
+    /* height: 300px;
+    width: 860px; */
+    left:530px;
+    top:-695px;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 2px;
+    border-style:solid;
+    background: #86C0C4;
+}
+#id_hm{
+    display: flex;
+    position: relative;
+    height: 300px;
+    width: 465px;
+    left:1000px;
+    top:-995px;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 2px;
+    border-style:solid;
+    background: #86C0C4;
+}
+.vel_chart{
+    width: 600px;
+    height: 380px;
+    display: flex;
+    position: relative;
+    left:225px;
+    top: -1005px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 25%);
+    background:black; 
+    border-width: 5px;
+    border-style:solid;
+    border-color: black;
+    color:#FFF;
+
+}
+.leaflet-control-container .leaflet-routing-container-hide {
+    display: none;
+}
+.heart_chart{
+    width: 625px;
+    height: 380px;
+    display: flex;
+    position: relative;
+    left:840px;
+    top: -1385px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 25%);
+    background: black;
+    border-width: 5px;
+    border-style:solid;
+    border-color: black;
+    color: #FFF;
+}
+.heart_chart1{
+  position: absolute;
+  background: black;
+  top: 30px;
+  left: 1010px;
+  height: 300px;
+  width: 450px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 25%);
+  background: black;
+  border-width: 2px;
+  border-style:solid;
+  border-color: black;
+  color: #FFF;
+}
+#myChart,#myChart1{
+    display: flex;
+    position: absolute;
+    left: 0px;
+    top: 50px;
+}
+.fa-map-marker{
+  position: relative;
+  left: -115px;
+  vertical-align: -30px;
+  top: 0px;
+ 
+}
+.fa-tachometer-alt{
+    position: relative;
+    left: -118px;
+    vertical-align: -68px;
+    top: -28px;
+  }
+.fa-heart{
+    position: relative;
+    left: -118px;
+    vertical-align: -75px;
+    top: -65px;
+  }
+.button{
+    background-color: #99C95D;
+    position: relative;
+    border-radius: 5px;
+    padding:5px;
+    top: -10px;
+    left: 65px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: 'Sports', sans-serif;
+    font-weight: 100;
+}
+.text1{
+    position: relative;
+    font-family: 'Sports', sans-serif;
+    font-size: 25px;
+    left:140px;
+    top: -193px;
+    color: #fff;
+    font-weight: 800px;
+}
+.text2{
+    position: relative;
+    font-family: 'Sports', sans-serif;
+    font-size: 25px;
+    left:160px;
+    top: -168px;
+    color: #fff;
+    font-weight: 800px;
+}
+.text3{
+    position: relative;
+    font-family: 'Sports', sans-serif;
+    font-size: 25px;
+    left:160px;
+    top: -142px;
+    color: #fff;
+    font-weight: 800px;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+    background: #4463dc;
+}
+
+.btn-info:focus,
+.btn-info.focus {
+    box-shadow: 0 0 0 0.2rem rgb(151, 170, 247);
+}
+
+.btn-info:not(:disabled):not(.disabled):active,
+.btn-info:not(:disabled):not(.disabled).active,
+.show>.btn-info.dropdown-toggle,
+.btn-info:hover {
+    color: #fff;
+    background-color: #e04646;
+    border-color: #f75757;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+i,
+span {
+    display: inline-block;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display:flex;
+    padding-top: 10px;
+
+}
+
+#sidebar {
+    min-width: 200px;
+    max-width: 200px;
+    color: black;
+    float: left;
+    padding-bottom: 350px;
+    margin-top: 20px;
+    margin-left: 2px;
+    transition: all 0.3s;
+    border-radius: 8px;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    opacity: 1;
+    background-color: black;
+  
+}
+
+.sidebar-header h1 {
+    font-size: 30px;
+    letter-spacing: 3px;
+    color: black;
+    text-shadow: 2px 2px 3px #39393a;
+    
+
+}
+
+#sidebar.active {
+    min-width: 110px;
+    max-width: 100px;
+    text-align: center;
+}
+
+#sidebar.active .sidebar-header h1,
+#sidebar.active .CTAs {
+    display: none;
+}
+
+#sidebar.active .sidebar-header span {
+    display: block;
+}
+
+#sidebar ul li a {
+    text-align: left;
+}
+
+#sidebar.active ul li a {
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 0.85em;
+}
+
+/*
+#sidebar.active ul li a i {
+    margin-right:  0;
+    display: block;
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+*/
+
+#sidebar.active ul li a i {
+    margin-right: 0;
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    float: none;
+    margin-left: 0;
+}
+
+#sidebar.active ul li a span.badge {
+    margin-left: 0 !important;
+}
+
+#sidebar.active ul ul a {
+    padding: 10px !important;
+}
+
+#sidebar.active a[aria-expanded="false"]::before,
+#sidebar.active a[aria-expanded="true"]::before {
+    top: auto;
+    bottom: 5px;
+    right: 50%;
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    position: relative;
+    left: -5px;
+}
+
+#sidebar .sidebar-header span {
+    display: none;
+    font-size: 1.8em;
+}
+
+
+#sidebar ul li a {
+    padding: 16px 10px;
+    letter-spacing: 0.6px;
+    display: block;
+    color: #fff;
+    font-weight: 400;
+    font-family: 'Sports', sans-serif;
+    font-weight: 500;
+    ;
+}
+
+#sidebar ul li a:hover {
+    color: #4c6ef5;
+    background: #fff;
+}
+
+#sidebar ul li a i {
+    margin-right: 10px;
+    font-size: 19px;
+    font-weight: 700px;
+    color: #FFF;
+    
+}
+
+#sidebar ul li.active>a,
+#sidebar a[aria-expanded="true"] {
+    color: #fff;
+    background: #4463dc;
+}
+
+ul.list-unstyled li a:focus a i.fa-caret-down {
+    transform: rotate(90deg);
+}
+
+/*
+a[data-toggle="collapse"] {
+    position: relative;
+}
+a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+    content: "\f015";
+    display: block;
+    position: absolute;
+    right: 20px;
+    font-family: 'Font Awesome 5 Free';
+    font-size: 0.6em;
+}
+a[aria-expanded="true"]::before {
+    content: "\f015";
+}*/
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #4463dc;
+}
+
+/*
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+*/
+
+a.download {
+    background: #fff;
+    color: #4c6ef5;
+}
+
+a.article,
+a.article:hover {
+    background: #4463dc !important;
+    color: #fff !important;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 900px) {
+    .sidebar-header h1 {
+        font-size: 2.2em;
+        letter-spacing: 2px;
+
+    }
+    #sidebar {
+        min-width: 230px;
+        max-width: 230px;
+
+    }
+}
+
+@media (max-width: 800px) {
+    
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        min-width: 80px;
+        max-width: 80px;
+        text-align: center;
+
+        margin-left: -80px !important;
+    }
+    a[aria-expanded="false"]::before,
+    a[aria-expanded="true"]::before {
+        top: auto;
+        bottom: 5px;
+        right: 50%;
+        -webkit-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+        transform: translateX(50%);
+    }
+    #sidebar.active {
+        margin-left: 0 !important;
+    }
+    #sidebar .sidebar-header h1,
+    #sidebar .CTAs {
+        display: none;
+    }
+    #sidebar .sidebar-header span {
+        display: block;
+    }
+    #sidebar ul li a {
+        padding: 20px 10px;
+    }
+    #sidebar ul li a span {
+        font-size: 0.85em;
+    }
+    #sidebar ul li a i {
+        margin-right: 0;
+        display: block;
+    }
+    #sidebar ul ul a {
+        padding: 10px !important;
+    }
+    #sidebar ul li a i {
+        font-size: 1.3em;
+    }
+    #sidebar {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+#sidebar.active {
+    min-width: 95px;
+    max-width: 95px;
+}
+}
